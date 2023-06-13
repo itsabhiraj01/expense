@@ -684,14 +684,10 @@ function filterData() {
 
 
 function show_notes(expenses, eleId) {
-    var total = 0.0;
     console.log("show notes called", JSON.stringify(expenses))
     removeChilds("expense_display");
-    for (var i = 0; i < expenses.length; i++) {
+    for (var i = 0; i < expenses.length; i++)
         addExpenseToDisplay(eleId, expenses[i], i);
-        total = total + parseInt(expenses[i].amount);
-    }
-    addTotal(eleId, total);
 }
 
 function addExpenseToDisplay(eleId, expense, count) {
@@ -705,14 +701,8 @@ function addExpenseToDisplay(eleId, expense, count) {
                 +   "<td>" + expense.source + "</td>"
                 +   "<td>" + expense.date + "</td>"
     table.appendChild(tr);
+    // innerDiv.appendChild(innerDiv2);
 
-}
-
-function addTotal(eleId, amount) {
-    var table = document.getElementById(eleId);
-    var total = document.createElement("div");
-    total.innerHTML = "<h6>Total : " + amount + "</h6>"
-    table.appendChild(total);
 }
 
 // function addExpenseToDisplay(eleId, expense, count) {
